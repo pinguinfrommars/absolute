@@ -14,5 +14,6 @@ export interface IBaseSelectItem {
   value: string | number
 }
 export interface IBaseSelectProps {
+  id?: string
   items: IBaseSelectItem[]
 }

@@ -5,13 +5,15 @@
   font-size: 0.9em;
   font-weight: lighter;
 }
-.app-input--default input {
+.app-input--default input,
+.app-input--default > div {
   height: 64px;
   width: 100%;
   padding: 20px;
   border: 1px solid var(--color-lite-gray);
   color: var(--color-text);
   border-radius: 0.4em;
+  background-color: var(--color-lite);
 }
 .app-input--default span {
   position: absolute;
@@ -21,13 +23,54 @@
   pointer-events: none;
   transition: all 0.15s ease;
 }
-.app-input--default input:focus ~ span,
-.app-input--default input:not(:focus):valid ~ span {
+
+/* Если в фокусе */
+.app-input--default input:focus:not([readonly]) ~ span,
+.app-input--default input:not(:focus):valid ~ span,
+.app-input--default .app-selected ~ span {
   top: 25%;
+}
+/* Если не в фокусе но есть текст */
+.app-input--default input:focus,
+.app-input--default input:not(:focus):valid,
+.app-input--default .app-selected {
+  font-size: 1.2rem;
+  font-weight: normal;
 }
 .app-input--default input:focus,
 .app-input--default input:not(:focus):valid {
+  padding-top: 40px;
+}
+.app-input--default .app-selected {
   padding-top: 35px;
-  font-size: 1.2rem;
-  font-weight: normal;
+}
+.app-input--default .app-select {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.app-input--default .app-select .app-select__items {
+  width: 100%;
+  overflow-x: auto;
+  display: flex;
+  gap: 0.5em;
+}
+.app-input--default .app-select .app-select__items::-webkit-scrollbar {
+  background: transparent;
+  width: 0px;
+}
+.app-input--default .app-select .app-select__items {
+  scrollbar-width: none;
+}
+.app-input--default .app-select .app-select__item {
+  line-height: normal;
+}
+.app-input--default .app-select__icon {
+  transition: all 0.25s ease;
+  transform: rotate(0deg);
+}
+.app-input--default .app-select__icon--active {
+  transform: rotate(180deg);
 }

@@ -1,11 +1,12 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
-  --color-lite-theme: #ffffff;
+  --color-lite: #ffffff;
   --color-accent: #174b7c;
   --color-lite-gray: #f7f8f8;
 
   --color-text: var(--color-accent);
-  --color-background: var(--color-lite-theme);
+  /* --color-background: var(--color-lite); */
+  --color-background: #dddddd;
   --color-lite-border: var(--color-lite-gray);
 }
 

@@ -1,5 +1,11 @@
 <template>
-  <svg viewBox="0 0 11 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    :width="width"
+    :height="height"
+    viewBox="0 0 11 7"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path
       fill-rule="evenodd"
       clip-rule="evenodd"
@@ -14,5 +20,7 @@ import { defineProps } from 'vue'
 import type { IIconProps } from './types'
 const $props = withDefaults(defineProps<IIconProps>(), {
   fill: '#174B7C',
+  width: '11',
+  height: '7',
 })
 </script>

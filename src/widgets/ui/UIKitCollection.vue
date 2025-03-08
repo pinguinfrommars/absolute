@@ -6,8 +6,8 @@
     <div class="app-grid__item">
       <phone-input :mask="'+#(###)-###-##-##'" v-model="phone">Телефон</phone-input>
     </div>
-    <div class="app-grid__item">
-      <base-select></base-select>
+    <div class="app-grid__item" style="width: 300px">
+      <base-select :items="selectItems">Производственная площадь</base-select>
     </div>
   </div>
 </template>
@@ -33,7 +33,16 @@ const selectItems = ref<IBaseSelectItem[]>([
     label: 'Германия',
     value: 'germany',
   },
+  {
+    label: 'Япония',
+    value: 'japan',
+  },
+  {
+    label: 'Китай',
+    value: 'china',
+  },
 ])
+const selectValue = ref<IBaseSelectItem[]>(selectItems.value)
 
 onMounted(() => console.log(phoneRef.value))
 </script>

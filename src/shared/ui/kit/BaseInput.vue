@@ -8,8 +8,9 @@
       :disabled="disabled"
       @input="onInput"
       required
+      class="app-input__input"
     />
-    <span><slot></slot></span>
+    <span class="app-input__label"><slot></slot></span>
   </base-input-wrapper>
 </template>
 
