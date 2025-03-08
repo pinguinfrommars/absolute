@@ -6,8 +6,13 @@
     <div class="app-grid__item">
       <phone-input :mask="'+#(###)-###-##-##'" v-model="phone">Телефон</phone-input>
     </div>
-    <div class="app-grid__item" style="width: 300px">
-      <base-select :items="selectItems">Производственная площадь</base-select>
+    <div class="app-grid__item" style="width: 500px">
+      <base-select :items="selectItems" v-model="selectValue">Производственная площадь</base-select>
+    </div>
+    <div class="app-grid__item" style="width: 500px">
+      <base-select :items="selectItems" :mode="'multiselect'" v-model="selectValues"
+        >Производственная площадь</base-select
+      >
     </div>
   </div>
 </template>
@@ -42,7 +47,8 @@ const selectItems = ref<IBaseSelectItem[]>([
     value: 'china',
   },
 ])
-const selectValue = ref<IBaseSelectItem[]>(selectItems.value)
+const selectValue = ref<IBaseSelectItem>()
+const selectValues = ref<IBaseSelectItem[]>()
 
 onMounted(() => console.log(phoneRef.value))
 </script>

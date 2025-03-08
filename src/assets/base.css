@@ -2,12 +2,17 @@
 :root {
   --color-lite: #ffffff;
   --color-accent: #174b7c;
+  --color-accent-light: #d5e2ee;
   --color-lite-gray: #f7f8f8;
 
   --color-text: var(--color-accent);
   /* --color-background: var(--color-lite); */
   --color-background: #dddddd;
   --color-lite-border: var(--color-lite-gray);
+
+  --padding-input: 20px;
+
+  --border-radius-sm: 7px;
 }
 
 *,
@@ -20,6 +25,12 @@
 
 input {
   outline: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 body {

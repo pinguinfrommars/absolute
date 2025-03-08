@@ -16,4 +16,5 @@ export interface IBaseSelectItem {
 export interface IBaseSelectProps {
   id?: string
   items: IBaseSelectItem[]
+  mode?: 'select' | 'multiselect'
 }
