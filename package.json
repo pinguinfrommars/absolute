@@ -13,6 +13,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@vuepic/vue-datepicker": "^11.0.1",
     "maska": "^3.1.0",
     "pinia": "^3.0.1",
     "unplugin-auto-import": "^19.1.1",

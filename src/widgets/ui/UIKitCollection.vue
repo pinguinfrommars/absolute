@@ -17,12 +17,15 @@
     <div class="app-grid__item">
       <base-input v-model="value">Адрес</base-input>
     </div>
+    <div class="app-grid__item">
+      <DateInput />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, type VNodeRef, onMounted } from 'vue'
-import { BaseInput, PhoneInput, BaseSelect } from '@/shared/ui/kit'
+import { BaseInput, PhoneInput, BaseSelect, DateInput } from '@/shared/ui/kit'
 import type { IBaseSelectItem } from '@/shared/ui/kit/types'
 
 const value = ref('')

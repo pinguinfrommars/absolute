@@ -40,6 +40,10 @@
 .app-input--default input:not(:focus):valid {
   padding-top: calc(var(--padding-input) + 20px);
 }
+.app-input--default input:not(:focus).app-datepicker,
+.app-input--default input:focus.app-datepicker {
+  padding-top: var(--padding-input);
+}
 .app-input--default .app-selected {
   padding-top: calc(var(--padding-input) + 15px);
 }
