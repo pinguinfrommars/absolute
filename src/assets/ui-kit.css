@@ -40,8 +40,36 @@
 .app-input--default input:not(:focus):valid {
   padding-top: calc(var(--padding-input) + 20px);
 }
-.app-input--default input:not(:focus).app-datepicker,
-.app-input--default input:focus.app-datepicker {
+
+.app-number-input input[type='number'] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+.app-number-input input[type='number']::-webkit-outer-spin-button,
+.app-number-input input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.app-datepicker,
+.app-number-input {
+  display: flex;
+  align-items: center;
+  padding-right: 0;
+}
+.app-datepicker__label,
+.app-number-input__label {
+  font-weight: 300;
+}
+.app-input--default input.app-datepicker__input,
+.app-input--default input.app-number-input__input {
+  text-align: end;
+  padding-right: 0;
+}
+.app-input--default input:not(:focus).app-datepicker__input,
+.app-input--default input:not(:focus).app-number-input__input,
+.app-input--default input:focus.app-datepicker__input,
+.app-input--default input:focus.app-number-input__input {
   padding-top: var(--padding-input);
 }
 .app-input--default .app-selected {

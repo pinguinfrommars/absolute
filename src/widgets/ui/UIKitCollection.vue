@@ -18,14 +18,23 @@
       <base-input v-model="value">Адрес</base-input>
     </div>
     <div class="app-grid__item">
-      <DateInput />
+      <date-input v-model="selectedDateFrom">с</date-input>
+    </div>
+    <div class="app-grid__item">
+      <date-input v-model="selectedDateTo" :min-date="selectedDateFrom">по</date-input>
+    </div>
+    <div class="app-grid__item">
+      <base-number-input v-model="numberFrom">от</base-number-input>
+    </div>
+    <div class="app-grid__item">
+      <base-number-input v-model="numberTo">до</base-number-input>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, type VNodeRef, onMounted } from 'vue'
-import { BaseInput, PhoneInput, BaseSelect, DateInput } from '@/shared/ui/kit'
+import { BaseInput, PhoneInput, BaseSelect, DateInput, BaseNumberInput } from '@/shared/ui/kit'
 import type { IBaseSelectItem } from '@/shared/ui/kit/types'
 
 const value = ref('')
@@ -55,6 +64,10 @@ const selectItems = ref<IBaseSelectItem[]>([
 ])
 const selectValue = ref<IBaseSelectItem>()
 const selectValues = ref<IBaseSelectItem[]>()
+const selectedDateFrom = ref<string>('')
+const selectedDateTo = ref<string>('')
+const numberFrom = ref<number>(null)
+const numberTo = ref<number>(null)
 
 onMounted(() => console.log(phoneRef.value))
 </script>

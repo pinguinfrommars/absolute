@@ -9,6 +9,12 @@ export interface IBaseInputProps extends IInputProps {
 export interface IPhoneInputProps extends IInputProps {
   mask: string
 }
+export interface INumberInputProps {
+  modelValue: number | null
+  minNumber?: number
+  id?: string
+  disabled?: boolean
+}
 export interface IBaseSelectItem {
   label: string
   value: string | number
@@ -17,4 +23,8 @@ export interface IBaseSelectProps {
   id?: string
   items: IBaseSelectItem[]
   mode?: 'select' | 'multiselect'
+}
+export interface IDatepickerProps {
+  modelValue: string
+  minDate?: string
 }
