@@ -1,0 +1,33 @@
+.app-input--default {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+  font-weight: lighter;
+}
+.app-input--default input {
+  height: 64px;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid var(--color-lite-gray);
+  color: var(--color-text);
+  border-radius: 0.4em;
+}
+.app-input--default span {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  line-height: 0;
+  pointer-events: none;
+  transition: all 0.15s ease;
+}
+.app-input--default input:focus ~ span,
+.app-input--default input:not(:focus):valid ~ span {
+  top: 25%;
+}
+.app-input--default input:focus,
+.app-input--default input:not(:focus):valid {
+  padding-top: 35px;
+  font-size: 1.2rem;
+  font-weight: normal;
+}

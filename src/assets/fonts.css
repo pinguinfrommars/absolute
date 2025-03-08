@@ -1,0 +1,21 @@
+@layer base {
+  @font-face {
+    font-family: 'Montserrat';
+    font-weight: normal;
+    src: url('././fonts/Montserrat-Regular.woff') format('woff');
+  }
+}
+@layer base {
+  @font-face {
+    font-family: 'Montserrat';
+    font-weight: bold;
+    src: url('././fonts/Montserrat-Bold.woff') format('woff');
+  }
+}
+@layer base {
+  @font-face {
+    font-family: 'Montserrat';
+    font-weight: lighter;
+    src: url('././fonts/Montserrat-Light.woff') format('woff');
+  }
+}
