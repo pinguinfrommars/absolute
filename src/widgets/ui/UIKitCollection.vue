@@ -1,18 +1,21 @@
 <template>
-  <div class="app-grid" style="padding: 1rem">
+  <div class="app-grid" style="padding: 1rem; width: 600px">
     <div class="app-grid__item">
       <base-input v-model="value">Наименование организации/ИП</base-input>
     </div>
     <div class="app-grid__item">
       <phone-input :mask="'+#(###)-###-##-##'" v-model="phone">Телефон</phone-input>
     </div>
-    <div class="app-grid__item" style="width: 500px">
+    <div class="app-grid__item">
       <base-select :items="selectItems" v-model="selectValue">Производственная площадь</base-select>
     </div>
-    <div class="app-grid__item" style="width: 500px">
+    <div class="app-grid__item">
       <base-select :items="selectItems" :mode="'multiselect'" v-model="selectValues"
         >Производственная площадь</base-select
       >
+    </div>
+    <div class="app-grid__item">
+      <base-input v-model="value">Адрес</base-input>
     </div>
   </div>
 </template>
