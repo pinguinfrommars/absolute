@@ -104,7 +104,7 @@ const onSingleSelect = (index: number) => {
   } else {
     selectedItems.value = [{ ...$props.items[index] }]
   }
-  $emits('update:modelValue', ...selectedItems.value)
+  $emits('update:modelValue', selectedItems.value)
   isOpen.value = false
 }
 

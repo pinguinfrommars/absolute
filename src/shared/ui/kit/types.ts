@@ -25,8 +25,8 @@ export interface IBaseSelectProps {
   mode?: 'select' | 'multiselect'
 }
 export interface IDatepickerProps {
-  modelValue: Date | string
-  minDate?: Date | string
+  modelValue: Date | null
+  minDate?: Date | null
 }
 export interface IBaseButtonProps {
   disabled?: boolean

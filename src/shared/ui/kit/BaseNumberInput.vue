@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps, watchEffect } from 'vue'
+import { defineProps } from 'vue'
 import { BaseInputWrapper } from '.'
 import type { INumberInputProps } from './types'
 
@@ -27,9 +27,3 @@ const onInput = (event: Event) => {
   $emits('update:modelValue', target.value)
 }
 </script>
-
-<style scoped>
-:deep(.dp--clear-btn) {
-  display: none !important;
-}
-</style>

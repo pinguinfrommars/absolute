@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps, watchEffect } from 'vue'
+import { ref, defineProps, watch } from 'vue'
 import { BaseNumberInput as AreaInput } from '@/shared/ui/kit'
 import type { IAreaRangeProps } from '../model/types'
 
@@ -22,8 +22,16 @@ const $emits = defineEmits(['update:areaFrom', 'update:areaTo'])
 const areaFrom = ref<number | null>(null)
 const areaTo = ref<number | null>(null)
 
-watchEffect(() => {
-  $emits('update:areaFrom', areaFrom.value)
-  $emits('update:areaTo', areaTo.value)
-})
+watch(
+  () => areaFrom.value,
+  () => {
+    $emits('update:areaFrom', areaFrom.value)
+  },
+)
+watch(
+  () => areaTo.value,
+  () => {
+    $emits('update:areaTo', areaTo.value)
+  },
+)
 </script>

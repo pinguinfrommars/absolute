@@ -196,12 +196,24 @@
   padding-inline: var(--padding-input);
 }
 
+/* Валидация */
+
+.app-validation-message {
+  font-weight: 300;
+  font-size: 0.75rem;
+  color: red;
+}
+
 /* Форма резидента */
 
-.app-resident-form {
+.app-resident-form__title {
+  padding-bottom: 1rem;
+}
+
+.app-resident-form form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 .app-resident-form__title {
@@ -209,8 +221,17 @@
   font-size: 1.5rem;
 }
 
+.app-resident-form__item {
+  position: relative;
+}
+
 .app-resident-form__actions {
   display: flex;
   justify-content: center;
   padding-top: 1rem;
+}
+
+.app-resident-form__item .app-validation-message {
+  position: absolute;
+  right: 0;
 }

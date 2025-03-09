@@ -12,18 +12,28 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps, watchEffect } from 'vue'
+import { ref, defineProps, watch } from 'vue'
 import { DateInput } from '@/shared/ui/kit'
 import type { IDateRangeProps } from '../model/types'
 
 const $props = defineProps<IDateRangeProps>()
 const $emits = defineEmits(['update:dateFrom', 'update:dateTo'])
 
-const dateFrom = ref<string>('')
-const dateTo = ref<string>('')
+const dateFrom = ref<Date | null>(null)
+const dateTo = ref<Date | null>(null)
 
-watchEffect(() => {
-  $emits('update:dateFrom', dateFrom.value)
-  $emits('update:dateTo', dateTo.value)
-})
+watch(
+  () => dateFrom.value,
+  () => {
+    console.log('dateFrom', dateFrom.value)
+    $emits('update:dateFrom', dateFrom.value)
+  },
+)
+watch(
+  () => dateTo.value,
+  () => {
+    console.log('dateFrom', dateFrom.value)
+    $emits('update:dateTo', dateTo.value)
+  },
+)
 </script>

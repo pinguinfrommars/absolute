@@ -1,5 +1,9 @@
 <template>
-  <VueDatePicker v-model="selectedDate" :enable-time-picker="false" :min-date="minDate">
+  <VueDatePicker
+    v-model="selectedDate"
+    :enable-time-picker="false"
+    :min-date="minDate ? minDate : undefined"
+  >
     <template #dp-input="{ value, onInput, onBlur }">
       <base-input-wrapper>
         <span><slot>c</slot></span>
@@ -19,13 +23,13 @@ import type { IDatepickerProps } from './types'
 const $props = defineProps<IDatepickerProps>()
 const $emits = defineEmits(['update:modelValue'])
 
-const selectedDate = ref<Date | string>('')
+const selectedDate = ref<Date | null>(null)
 
 watchEffect(() => $emits('update:modelValue', selectedDate.value))
 </script>
 
 <style scoped>
-::v-deep .dp--clear-btn {
+::v-deep(.dp--clear-btn) {
   display: none !important;
 }
 </style>

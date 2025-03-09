@@ -1,4 +1,4 @@
 export interface IDateRangeProps {
-  dateFrom: Date | string
-  dateTo: Date | string
+  dateFrom: Date | null
+  dateTo: Date | null
 }
