@@ -1,8 +1,11 @@
+/* Inputs */
+
 .app-input--default {
   position: relative;
   display: flex;
   align-items: center;
   font-size: 0.9em;
+  width: 100%;
 }
 .app-input--default input,
 .app-input--default > div {
@@ -138,4 +141,61 @@
 .app-input--default ~ .app-select__menu .app-select__menu_item:last-child:hover {
   border-bottom-left-radius: var(--border-radius-sm);
   border-bottom-right-radius: var(--border-radius-sm);
+}
+
+/* Buttons */
+
+.app-btn {
+  text-align: center;
+  transition: all 0.15s ease;
+}
+
+.app-btn--primary {
+  background-color: var(--color-accent);
+  color: var(--color-lite);
+  font-weight: 500;
+}
+.app-btn--primary:active {
+  background-color: var(--color-accent-active);
+}
+.app-btn--medium {
+  padding: 0.5rem;
+  min-width: 160px;
+  height: 38px;
+  font-size: 0.9em;
+}
+.app-btn--rounded {
+  border-radius: 500px;
+}
+
+/* Features */
+
+.app-area-range,
+.app-date-range {
+  width: 100%;
+}
+
+.app-area-range__title,
+.app-date-range__title {
+  display: inline-block;
+  padding-bottom: 1rem;
+}
+
+.app-area-range__inputs,
+.app-date-range__inputs {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.app-resident-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.app-resident-form__actions {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
 }

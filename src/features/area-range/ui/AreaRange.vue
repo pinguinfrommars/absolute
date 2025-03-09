@@ -1,10 +1,13 @@
 <template>
-  <div>
-    <slot name="title"></slot>
-    <div>
+  <div class="app-area-range">
+    <span class="app-area-range__title">
+      <slot name="title"></slot>
+    </span>
+    <div class="app-area-range__inputs">
       <area-input v-model="areaFrom">от</area-input>
       <area-input v-model="areaTo">до</area-input>
     </div>
+    <slot name="validation"></slot>
   </div>
 </template>
 

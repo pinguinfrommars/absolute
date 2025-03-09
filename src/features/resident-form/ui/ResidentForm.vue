@@ -1,29 +1,32 @@
 <template>
-  <div class="app-grid" style="display: grid; gap: 1.5rem; padding: 1rem; width: 800px">
-    <div class="app-grid__item">
+  <div class="app-resident-form">
+    <div class="app-resident-form__title">
+      <slot name="title"></slot>
+    </div>
+    <div class="app-resident-form__item">
       <base-input v-model="value">Наименование организации/ИП</base-input>
     </div>
-    <div class="app-grid__item">
+    <div class="app-resident-form__item">
       <phone-input :mask="'+#(###)-###-##-##'" v-model="phone">Телефон</phone-input>
     </div>
-    <div class="app-grid__item">
+    <div class="app-resident-form__item">
       <base-select :items="selectItems" v-model="selectValue">Производственная площадь</base-select>
     </div>
-    <div class="app-grid__item">
+    <div class="app-resident-form__item">
       <base-input v-model="value">Адрес</base-input>
     </div>
-    <div class="app-grid__item">
+    <div class="app-resident-form__item">
       <date-range v-model:dateFrom="selectedDateFrom" v-model:dateTo="selectedDateTo">
         <template #title>Дата начала аренды</template>
       </date-range>
     </div>
-    <div class="app-grid__item">
+    <div class="app-resident-form__item">
       <area-range v-model:areaFrom="numberFrom" v-model:areaTo="numberTo">
         <template #title>Площадь помещения (м<sup>2</sup>)</template>
       </area-range>
     </div>
-    <div class="app-grid__item">
-      <submit-button :size="'medium'"></submit-button>
+    <div class="app-resident-form__actions">
+      <submit-button :size="'medium'">Отправить</submit-button>
     </div>
   </div>
 </template>

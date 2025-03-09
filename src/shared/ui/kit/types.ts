@@ -28,3 +28,10 @@ export interface IDatepickerProps {
   modelValue: Date | string
   minDate?: Date | string
 }
+export interface IBaseButtonProps {
+  disabled?: boolean
+  loading?: boolean
+  variant?: 'primary' | 'secondary'
+  size?: 'small' | 'medium' | 'large'
+  shape?: 'rounded' | 'square'
+}

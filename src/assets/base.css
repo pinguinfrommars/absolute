@@ -2,6 +2,7 @@
 :root {
   --color-lite: #ffffff;
   --color-accent: #174b7c;
+  --color-accent-active: #1c5d9a;
   --color-accent-light: #d5e2ee;
   --color-lite-gray: #f7f8f8;
 
@@ -33,6 +34,20 @@ ul {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+button {
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+  text-align: inherit;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  color: inherit;
+  font: inherit;
 }
 
 body {

@@ -1,2 +1,3 @@
 import UIKitCollection from './UIKitCollection.vue'
-export { UIKitCollection }
+import ResidentForm from './ResidentForm.vue'
+export { UIKitCollection, ResidentForm }

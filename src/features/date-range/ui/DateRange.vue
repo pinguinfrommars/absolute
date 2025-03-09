@@ -1,10 +1,13 @@
 <template>
-  <div>
-    <slot name="title"></slot>
-    <div>
+  <div class="app-date-range">
+    <span class="app-date-range__title">
+      <slot name="title"></slot>
+    </span>
+    <div class="app-date-range__inputs">
       <date-input v-model="dateFrom">с</date-input>
       <date-input v-model="dateTo" :min-date="dateFrom">по</date-input>
     </div>
+    <slot name="validation"></slot>
   </div>
 </template>
 
