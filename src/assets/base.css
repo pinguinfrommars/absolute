@@ -13,6 +13,8 @@
   --padding-input: 20px;
 
   --border-radius-sm: 7px;
+
+  --layer-menu: 1000;
 }
 
 *,

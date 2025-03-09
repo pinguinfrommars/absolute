@@ -17,23 +17,39 @@
     <div class="app-grid__item">
       <base-input v-model="value">Адрес</base-input>
     </div>
-    <div class="app-grid__item">
+    <!-- <div class="app-grid__item">
       <date-input v-model="selectedDateFrom">с</date-input>
     </div>
     <div class="app-grid__item">
       <date-input v-model="selectedDateTo" :min-date="selectedDateFrom">по</date-input>
-    </div>
-    <div class="app-grid__item">
+    </div> -->
+    <!-- <div class="app-grid__item">
       <base-number-input v-model="numberFrom">от</base-number-input>
     </div>
     <div class="app-grid__item">
       <base-number-input v-model="numberTo">до</base-number-input>
+    </div> -->
+    <div class="app-grid__item">
+      <date-range v-model:dateFrom="selectedDateFrom" v-model:dateTo="selectedDateTo">
+        <template #title>
+          <h4>Дата начала аренды</h4>
+        </template>
+      </date-range>
+    </div>
+    <div class="app-grid__item">
+      <area-range v-model:areaFrom="numberFrom" v-model:areaTo="numberTo">
+        <template #title>
+          <h4>Площадь помещения (м<sup>2</sup>)</h4>
+        </template>
+      </area-range>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, type VNodeRef, onMounted } from 'vue'
+import { DateRange } from '@/features/date-range/ui'
+import { AreaRange } from '@/features/area-range/ui'
 import { BaseInput, PhoneInput, BaseSelect, DateInput, BaseNumberInput } from '@/shared/ui/kit'
 import type { IBaseSelectItem } from '@/shared/ui/kit/types'
 
@@ -64,10 +80,10 @@ const selectItems = ref<IBaseSelectItem[]>([
 ])
 const selectValue = ref<IBaseSelectItem>()
 const selectValues = ref<IBaseSelectItem[]>()
-const selectedDateFrom = ref<string>('')
-const selectedDateTo = ref<string>('')
-const numberFrom = ref<number>(null)
-const numberTo = ref<number>(null)
+const selectedDateFrom = ref<Date | string>('')
+const selectedDateTo = ref<Date | string>('')
+const numberFrom = ref<number | null>(null)
+const numberTo = ref<number | null>(null)
 
 onMounted(() => console.log(phoneRef.value))
 </script>

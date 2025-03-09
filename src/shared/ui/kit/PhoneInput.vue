@@ -1,6 +1,15 @@
 <template>
   <base-input-wrapper>
-    <input ref="inputRef" :id="id" type="tel" :disabled="disabled" required v-maska="mask" />
+    <input
+      ref="inputRef"
+      :id="id"
+      type="tel"
+      :disabled="disabled"
+      required
+      v-maska="mask"
+      :value="modelValue"
+      @input="onInput"
+    />
     <span><slot></slot></span>
   </base-input-wrapper>
 </template>

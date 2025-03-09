@@ -24,6 +24,10 @@
   font-weight: 300;
 }
 
+.app-select {
+  position: relative;
+}
+
 /* Если в фокусе */
 .app-input--default input:focus:not([readonly]) ~ span,
 .app-input--default input:not(:focus):valid ~ span,
@@ -109,6 +113,9 @@
   background-color: var(--color-lite);
   border-radius: var(--border-radius-sm);
   margin-top: 1px;
+  position: absolute;
+  width: 100%;
+  z-index: var(--layer-menu);
 
   box-shadow: 5px 8px 5px -4px rgba(0, 0, 0, 0.27);
   -webkit-box-shadow: 5px 8px 5px -4px rgba(0, 0, 0, 0.27);

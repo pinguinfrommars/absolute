@@ -21,7 +21,7 @@ import type { IDatepickerProps } from './types'
 const $props = defineProps<IDatepickerProps>()
 const $emits = defineEmits(['update:modelValue'])
 
-const selectedDate = ref()
+const selectedDate = ref<Date | string>('')
 
 watchEffect(() => $emits('update:modelValue', selectedDate.value))
 </script>
