@@ -8,7 +8,6 @@
       :disabled="disabled"
       @input="onInput"
       required
-      class="app-input__input"
       tabindex="0"
     />
     <span class="app-input__label"><slot></slot></span>

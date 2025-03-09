@@ -2,10 +2,8 @@
   <VueDatePicker v-model="selectedDate" :enable-time-picker="false" :min-date="minDate">
     <template #dp-input="{ value, onInput, onBlur }">
       <base-input-wrapper>
-        <div class="app-datepicker">
-          <span class="app-datepicker__label"><slot>c</slot></span>
-          <input :value="value" @input="onInput" @blur="onBlur" class="app-datepicker__input" />
-        </div>
+        <span><slot>c</slot></span>
+        <input :value="value" @input="onInput" @blur="onBlur" class="app-datepicker__input" />
       </base-input-wrapper>
     </template>
   </VueDatePicker>

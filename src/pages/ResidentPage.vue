@@ -1,21 +1,15 @@
 <template>
   <h1>Resident Page</h1>
-  <vue-final-modal v-model="isModalVisible">
-    <template #default>
-      <ResidentForm />
-    </template>
-  </vue-final-modal>
-  <button @click="showModal">Show modal</button>
+  <modals-container />
+  <button @click="open">Show modal</button>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 import { ResidentForm } from '@/widgets/ui'
-import { VueFinalModal } from 'vue-final-modal'
+import { ModalsContainer, useModal } from 'vue-final-modal'
 
-const isModalVisible = ref(false)
-
-const showModal = () => {
-  isModalVisible.value = true
-}
+const { open, close } = useModal({
+  component: ResidentForm,
+})
 </script>

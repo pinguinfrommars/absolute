@@ -1,18 +1,16 @@
 <template>
   <base-input-wrapper>
-    <div class="app-number-input">
-      <span class="app-number-input__label"><slot></slot></span>
-      <input
-        ref="inputRef"
-        :id="id"
-        type="number"
-        :value="modelValue"
-        :disabled="disabled"
-        @input="onInput"
-        required
-        class="app-number-input__input"
-      />
-    </div>
+    <span><slot>от</slot></span>
+    <input
+      ref="inputRef"
+      :id="id"
+      type="number"
+      :value="modelValue"
+      :disabled="disabled"
+      @input="onInput"
+      required
+      class="app-number-input__input"
+    />
   </base-input-wrapper>
 </template>
 
@@ -31,7 +29,7 @@ const onInput = (event: Event) => {
 </script>
 
 <style scoped>
-::v-deep .dp--clear-btn {
+:deep(.dp--clear-btn) {
   display: none !important;
 }
 </style>

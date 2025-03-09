@@ -4,18 +4,22 @@
   position: relative;
   display: flex;
   align-items: center;
-  font-size: 0.9em;
   width: 100%;
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-lite);
+  color: var(--color-text);
+  border: 2px solid var(--color-lite-gray);
 }
 .app-input--default input,
-.app-input--default > div {
+.app-input--default .app-select__input {
+  /* font-size: 0.9em; */
   height: 64px;
   width: 100%;
   padding: var(--padding-input);
-  border: 1px solid var(--color-lite-gray);
-  color: var(--color-text);
-  border-radius: var(--border-radius-sm);
-  background-color: var(--color-lite);
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  font-weight: 500;
 }
 .app-input--default span {
   position: absolute;
@@ -27,58 +31,46 @@
   font-weight: 300;
 }
 
-.app-select {
-  position: relative;
-}
-
 /* Если в фокусе */
 .app-input--default input:focus:not([readonly]) ~ span,
 .app-input--default input:not(:focus):valid ~ span,
 .app-input--default .app-selected ~ span {
   top: 25%;
+  font-size: 0.9rem;
 }
 /* Если не в фокусе но есть текст */
 .app-input--default input:focus,
 .app-input--default input:not(:focus):valid {
   font-size: 1.2rem;
-  font-weight: normal;
 }
+/* Если в фокусе и если не в фокусе но есть текст */
 .app-input--default input:focus,
 .app-input--default input:not(:focus):valid {
   padding-top: calc(var(--padding-input) + 20px);
 }
-
-.app-number-input input[type='number'] {
-  appearance: textfield;
-  -moz-appearance: textfield;
-}
-.app-number-input input[type='number']::-webkit-outer-spin-button,
-.app-number-input input[type='number']::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.app-datepicker,
-.app-number-input {
-  display: flex;
-  align-items: center;
-  padding-right: 0;
-}
-.app-datepicker__label,
-.app-number-input__label {
-  font-weight: 300;
-}
-.app-input--default input.app-datepicker__input,
-.app-input--default input.app-number-input__input {
-  text-align: end;
-  padding-right: 0;
-}
+/* Отменить паддинг для выбора даты и номера */
 .app-input--default input:not(:focus).app-datepicker__input,
 .app-input--default input:not(:focus).app-number-input__input,
 .app-input--default input:focus.app-datepicker__input,
 .app-input--default input:focus.app-number-input__input {
   padding-top: var(--padding-input);
 }
+/* Убрать стрелки у инпута number */
+.app-input--default input[type='number'] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+.app-input--default input[type='number']::-webkit-outer-spin-button,
+.app-input--default input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Стили для select */
+.app-select {
+  position: relative;
+}
+
 .app-input--default .app-selected {
   padding-top: calc(var(--padding-input) + 15px);
 }
@@ -170,6 +162,8 @@
 
 /* Features */
 
+/* Выбор даты и площади */
+
 .app-area-range,
 .app-date-range {
   width: 100%;
@@ -188,10 +182,31 @@
   align-items: center;
 }
 
+.app-date-range .app-date-range__title,
+.app-area-range .app-area-range__title {
+  font-size: 0.9rem;
+}
+.app-date-range .app-input--default input.app-datepicker__input,
+.app-area-range .app-input--default input.app-number-input__input {
+  text-align: end;
+  padding-right: 0;
+}
+.app-date-range .app-input--default,
+.app-area-range .app-input--default {
+  padding-inline: var(--padding-input);
+}
+
+/* Форма резидента */
+
 .app-resident-form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.app-resident-form__title {
+  font-weight: 600;
+  font-size: 1.5rem;
 }
 
 .app-resident-form__actions {
