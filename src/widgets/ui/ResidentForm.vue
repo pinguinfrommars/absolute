@@ -5,9 +5,11 @@
     overlay-transition="vfm-fade"
     content-transition="vfm-fade"
   >
-    <resident-form>
-      <template #title>Заполните заявку, чтобы стать резидентом</template>
-    </resident-form>
+    <div class="modal-content">
+      <resident-form>
+        <template #title>Заполните заявку, чтобы стать резидентом</template>
+      </resident-form>
+    </div>
   </vue-final-modal>
 </template>
 
@@ -26,5 +28,23 @@ import { VueFinalModal } from 'vue-final-modal'
   padding: 2rem;
   background: #fff;
   border-radius: 0.5rem;
+}
+.modal-content {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.vfm-modal {
+  height: auto;
+}
+
+.vfm-modal__wrapper {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+.vfm-modal__content {
+  max-height: 80vh;
+  overflow-y: auto;
 }
 </style>
