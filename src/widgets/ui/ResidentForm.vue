@@ -30,21 +30,13 @@ import { VueFinalModal } from 'vue-final-modal'
   border-radius: 0.5rem;
 }
 .modal-content {
-  max-height: 80vh;
+  position: relative;
+  max-height: 90vh;
   overflow-y: auto;
+  padding: 0 0.25rem;
 }
 
 .vfm-modal {
   height: auto;
-}
-
-.vfm-modal__wrapper {
-  max-height: 100vh;
-  overflow: hidden;
-}
-
-.vfm-modal__content {
-  max-height: 80vh;
-  overflow-y: auto;
 }
 </style>

@@ -11,15 +11,22 @@ instance.interceptors.response.use(
     return response
   },
   async function (error) {
-    if (error.response && error.response.status === 403) {
-      throw Error
+    if (axios.isAxiosError(error)) {
+      if (error.response && error.response.status === 403) {
+        return Promise.reject(error.response.data.message || 'Ошибка авторизации')
+      }
+      if (error.code === 'ERR_NETWORK') {
+        throw new Error('Ошибка сети')
+      }
+      if (error.response) {
+        throw new Error(error.response.data.message || 'Ошибка сервера')
+      }
+      if (error.request) {
+        throw new Error('Нет ответа от сервера')
+      }
     }
 
-    // Ошибка соединения с сетью Интернет
-    if (error.code && error.code === 'ERR_NETWORK') {
-      throw Error
-    }
-    return Promise.reject(error?.response?.status)
+    throw new Error(error instanceof Error ? error.message : 'Что то пошло не так')
   },
 )
 

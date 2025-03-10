@@ -6,40 +6,67 @@
     <form @submit.prevent="submitForm" novalidate>
       <div class="app-resident-form__item">
         <base-input v-model="name">Наименование организации/ИП</base-input>
-        <span class="app-validation-message" v-if="errors.name">{{ errors.name }}</span>
+        <span class="app-error-message app-validation-message" v-if="errors.name">{{
+          errors.name
+        }}</span>
       </div>
       <div class="app-resident-form__item">
         <phone-input :mask="'+#(###)-###-##-##'" v-model="phone">Телефон</phone-input>
-        <span class="app-validation-message" v-if="errors.phone">{{ errors.phone }}</span>
+        <span class="app-error-message app-validation-message" v-if="errors.phone">{{
+          errors.phone
+        }}</span>
       </div>
       <div class="app-resident-form__item">
         <base-select :items="selectItems" v-model="roomType">Производственная площадь</base-select>
-        <span class="app-validation-message" v-if="errors.roomType">{{ errors.roomType }}</span>
+        <span class="app-error-message app-validation-message" v-if="errors.roomType">{{
+          errors.roomType
+        }}</span>
       </div>
       <div class="app-resident-form__item">
         <base-input v-model="address">Адрес</base-input>
-        <span class="app-validation-message" v-if="errors.address">{{ errors.address }}</span>
+        <span class="app-error-message app-validation-message" v-if="errors.address">{{
+          errors.address
+        }}</span>
       </div>
       <div class="app-resident-form__item">
         <date-range v-model:dateFrom="dateFrom" v-model:dateTo="dateTo">
           <template #title>Дата начала аренды</template>
         </date-range>
-        <span class="app-validation-message" v-if="errors.dateFrom">{{ errors.dateFrom }}</span>
-        <span class="app-validation-message" v-if="!errors.dateFrom && errors.dateTo">{{
-          errors.dateTo
+        <span class="app-error-message app-validation-message" v-if="errors.dateFrom">{{
+          errors.dateFrom
         }}</span>
+        <span
+          class="app-error-message app-validation-message"
+          v-if="!errors.dateFrom && errors.dateTo"
+          >{{ errors.dateTo }}</span
+        >
       </div>
       <div class="app-resident-form__item">
         <area-range v-model:areaFrom="areaFrom" v-model:areaTo="areaTo">
           <template #title>Площадь помещения (м<sup>2</sup>)</template>
         </area-range>
-        <span class="app-validation-message" v-if="errors.areaFrom">{{ errors.areaFrom }}</span>
-        <span class="app-validation-message" v-if="!errors.areaFrom && errors.areaTo">{{
-          errors.areaTo
+        <span class="app-error-message app-validation-message" v-if="errors.areaFrom">{{
+          errors.areaFrom
+        }}</span>
+        <span
+          class="app-error-message app-validation-message"
+          v-if="!errors.areaFrom && errors.areaTo"
+          >{{ errors.areaTo }}</span
+        >
+      </div>
+      <!--TODO вынести ошибки в отдельный компонент-->
+      <div v-if="$residentStore.errors['addResident']" class="app-resident-form__item">
+        <span class="app-error-message app-server-message">{{
+          $residentStore.errors['addResident']
         }}</span>
       </div>
       <div class="app-resident-form__actions">
-        <submit-button :size="'medium'" type="submit">Отправить</submit-button>
+        <submit-button
+          :size="'medium'"
+          type="submit"
+          :loading="$residentStore.loading['addResident']"
+          >Отправить</submit-button
+        >
       </div>
     </form>
   </div>
@@ -55,6 +82,9 @@ import type { IBaseSelectItem } from '@/shared/ui/kit/types'
 import { useForm, useField } from 'vee-validate'
 import * as yup from 'yup'
 import type { IAddResidentDto } from '@/shared/api/api.types'
+import { useResidentStore } from '@/shared/store/resident.store'
+
+const $residentStore = useResidentStore()
 
 const selectItems = ref<IBaseSelectItem[]>([
   {
@@ -144,15 +174,7 @@ const { value: areaTo, errorMessage: areaToError } = useField<number | null>('ar
 const { value: dateFrom, errorMessage: dateFromError } = useField<Date | null>('dateFrom')
 const { value: dateTo, errorMessage: dateToError } = useField<Date | null>('dateTo')
 
-const submitForm = handleSubmit((values) => {
-  console.log('Form submitted with values:', values)
+const submitForm = handleSubmit(async (values) => {
+  await $residentStore.addResident(values)
 })
 </script>
-
-<style lang="css" scoped>
-.app-grid {
-  display: grid;
-  grid-template-columns: 4;
-  gap: 1rem;
-}
-</style>

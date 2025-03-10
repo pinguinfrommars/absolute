@@ -16,3 +16,10 @@ export interface IAddResidentDto {
   dateFrom: Date | null
   dateTo: Date | null
 }
+
+export interface IServerResponse {
+  status: string
+  message: string
+  data: any
+  error: any
+}

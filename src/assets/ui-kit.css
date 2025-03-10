@@ -105,11 +105,13 @@
 }
 
 .app-input--default ~ .app-select__menu {
-  background-color: var(--color-lite);
+  background-color: var(--color-lite-gray);
   border-radius: var(--border-radius-sm);
   margin-top: 1px;
   position: absolute;
   width: 100%;
+  max-width: 100%;
+  border: 1px solid var(--color-lite-gray);
   z-index: var(--layer-menu);
 
   box-shadow: 5px 8px 5px -4px rgba(0, 0, 0, 0.27);
@@ -198,7 +200,7 @@
 
 /* Валидация */
 
-.app-validation-message {
+.app-error-message {
   font-weight: 300;
   font-size: 0.75rem;
   color: red;
@@ -231,7 +233,10 @@
   padding-top: 1rem;
 }
 
-.app-resident-form__item .app-validation-message {
+.app-resident-form__item .app-error-message.app-validation-message {
   position: absolute;
   right: 0;
+}
+.app-resident-form__item .app-error-message.app-server-message {
+  text-align: center;
 }

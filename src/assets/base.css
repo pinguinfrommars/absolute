@@ -7,8 +7,7 @@
   --color-lite-gray: #f7f8f8;
 
   --color-text: var(--color-accent);
-  /* --color-background: var(--color-lite); */
-  --color-background: #dddddd;
+  --color-background: var(--color-lite);
   --color-lite-border: var(--color-lite-gray);
 
   --padding-input: 20px;
