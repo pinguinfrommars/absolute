@@ -67,8 +67,10 @@ const toggleMenu = () => {
         el.classList.remove('app-selected')
       }
       hoverIndex.value = -1
+      document.removeEventListener('keydown', keyArrowsHandler)
     } else {
       el.classList.add('app-selected')
+      document.addEventListener('keydown', keyArrowsHandler)
     }
   }
 }

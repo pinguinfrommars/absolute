@@ -17,7 +17,9 @@
         }}</span>
       </div>
       <div class="app-resident-form__item">
-        <base-select :items="selectItems" v-model="roomType">Производственная площадь</base-select>
+        <base-select :items="selectItems" v-model="roomType" :mode="'multiselect'"
+          >Производственная площадь</base-select
+        >
         <span class="app-error-message app-validation-message" v-if="errors.roomType">{{
           errors.roomType
         }}</span>
@@ -88,24 +90,24 @@ const $residentStore = useResidentStore()
 
 const selectItems = ref<IBaseSelectItem[]>([
   {
-    label: 'Россия',
-    value: 'russia',
+    label: 'Рабочая',
+    value: '1',
   },
   {
-    label: 'США',
-    value: 'usa',
+    label: 'Подсобная',
+    value: '2',
   },
   {
-    label: 'Германия',
-    value: 'germany',
+    label: 'Вспомогательная',
+    value: '3',
   },
   {
-    label: 'Япония',
-    value: 'japan',
+    label: 'Объект полного цикла',
+    value: '4',
   },
   {
-    label: 'Китай',
-    value: 'china',
+    label: 'Склад',
+    value: '5',
   },
 ])
 
@@ -131,7 +133,6 @@ const validationSchema: yup.ObjectSchema<IAddResidentDto> = yup.object({
   areaTo: yup
     .number()
     .transform((value) => (Number.isNaN(value) ? null : value))
-    .nullable()
     .required('Площадь помещения обязательна'),
 
   dateFrom: yup.date().nullable().required('Дата начала аренды обязательна'),

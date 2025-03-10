@@ -9,12 +9,9 @@ export const useResidentStore = defineStore('resident', () => {
 
   async function addResident(addResidentDto: IAddResidentDto, key: string = 'addResident') {
     loading[key] = true
-    try {
-      const { error } = await API.resident.addResident(addResidentDto)
-      if (error) errors[key] = error
-    } finally {
-      loading[key] = false
-    }
+    const { error } = await API.resident.addResident(addResidentDto)
+    if (error) errors[key] = error
+    loading[key] = false
   }
 
   return {

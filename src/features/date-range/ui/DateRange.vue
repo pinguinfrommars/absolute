@@ -25,14 +25,12 @@ const dateTo = ref<Date | null>(null)
 watch(
   () => dateFrom.value,
   () => {
-    console.log('dateFrom', dateFrom.value)
     $emits('update:dateFrom', dateFrom.value)
   },
 )
 watch(
   () => dateTo.value,
   () => {
-    console.log('dateFrom', dateFrom.value)
     $emits('update:dateTo', dateTo.value)
   },
 )
