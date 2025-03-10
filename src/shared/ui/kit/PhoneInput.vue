@@ -15,13 +15,13 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits, ref } from 'vue'
+import { ref } from 'vue'
 import type { VNodeRef } from 'vue'
 import type { IPhoneInputProps } from './types'
 import { vMaska } from 'maska/vue'
 import { BaseInputWrapper } from '.'
 
-const $props = defineProps<IPhoneInputProps>()
+defineProps<IPhoneInputProps>()
 
 const $emits = defineEmits(['update:modelValue'])
 

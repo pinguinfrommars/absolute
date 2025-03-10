@@ -7,12 +7,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import { ResidentForm } from '@/widgets/ui'
 import { ModalsContainer, useModal } from 'vue-final-modal'
 import SubmitButton from '@/features/submit-action/ui/SubmitButton.vue'
 
-const { open, close } = useModal({
+const { open } = useModal({
   component: ResidentForm,
 })
 </script>

@@ -13,9 +13,8 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue'
 import { BaseButton } from '@/shared/ui/kit'
 import type { ISubmitButtonProps } from '../model/types'
 
-const $props = defineProps<ISubmitButtonProps>()
+defineProps<ISubmitButtonProps>()
 </script>

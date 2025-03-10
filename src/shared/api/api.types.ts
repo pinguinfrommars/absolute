@@ -20,6 +20,6 @@ export interface IAddResidentDto {
 export interface IServerResponse {
   status: string
   message: string
-  data: any
-  error: any
+  data: object[]
+  error: object[]
 }

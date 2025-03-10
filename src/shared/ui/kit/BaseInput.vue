@@ -15,12 +15,12 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits, ref } from 'vue'
+import { ref } from 'vue'
 import type { VNodeRef } from 'vue'
 import type { IBaseInputProps } from './types'
 import { BaseInputWrapper } from '.'
 
-const $props = withDefaults(defineProps<IBaseInputProps>(), {
+withDefaults(defineProps<IBaseInputProps>(), {
   type: 'text',
 })
 

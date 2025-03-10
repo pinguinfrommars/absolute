@@ -16,9 +16,8 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue'
 import type { IIconProps } from './types'
-const $props = withDefaults(defineProps<IIconProps>(), {
+withDefaults(defineProps<IIconProps>(), {
   fill: '#174B7C',
   width: '11',
   height: '7',

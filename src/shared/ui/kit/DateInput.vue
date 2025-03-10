@@ -14,13 +14,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps, watchEffect } from 'vue'
+import { ref, watchEffect } from 'vue'
 import VueDatePicker from '@vuepic/vue-datepicker'
 import { BaseInputWrapper } from '.'
 import '@vuepic/vue-datepicker/dist/main.css'
 import type { IDatepickerProps } from './types'
 
-const $props = defineProps<IDatepickerProps>()
+defineProps<IDatepickerProps>()
 const $emits = defineEmits(['update:modelValue'])
 
 const selectedDate = ref<Date | null>(null)

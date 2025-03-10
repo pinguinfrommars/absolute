@@ -12,11 +12,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { BaseNumberInput as AreaInput } from '@/shared/ui/kit'
 import type { IAreaRangeProps } from '../model/types'
 
-const $props = defineProps<IAreaRangeProps>()
+defineProps<IAreaRangeProps>()
 const $emits = defineEmits(['update:areaFrom', 'update:areaTo'])
 
 const areaFrom = ref<number | null>(null)

@@ -15,11 +15,10 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from 'vue'
 import { BaseInputWrapper } from '.'
 import type { INumberInputProps } from './types'
 
-const $props = defineProps<INumberInputProps>()
+defineProps<INumberInputProps>()
 const $emits = defineEmits(['update:modelValue'])
 
 const onInput = (event: Event) => {

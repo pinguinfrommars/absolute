@@ -12,11 +12,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineProps, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { DateInput } from '@/shared/ui/kit'
 import type { IDateRangeProps } from '../model/types'
 
-const $props = defineProps<IDateRangeProps>()
+defineProps<IDateRangeProps>()
 const $emits = defineEmits(['update:dateFrom', 'update:dateTo'])
 
 const dateFrom = ref<Date | null>(null)

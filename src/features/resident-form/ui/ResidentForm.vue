@@ -75,7 +75,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, type VNodeRef, onMounted } from 'vue'
+import { ref } from 'vue'
 import { DateRange } from '@/features/date-range/ui'
 import { AreaRange } from '@/features/area-range/ui'
 import { BaseInput, PhoneInput, BaseSelect, DateInput, BaseNumberInput } from '@/shared/ui/kit'
